@@ -7,5 +7,4 @@ public class cc {
     public void xxx1() {
         int a=0;
     }
-
 }
