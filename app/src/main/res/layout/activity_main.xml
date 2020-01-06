@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
+<!--登录界面，账号密码输入框，登录按钮，忘记密码找回，用户注册-->
     <EditText
             android:id="@+id/account"
             android:layout_width="match_parent"

@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
+/*登录界面的activity*/
 public class MainActivity extends BaseActivity {
 
     @Override
