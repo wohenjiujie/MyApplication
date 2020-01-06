@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <!--   注册用 -->
-    <string name="registration"> 注册</string>
+    <string name="registration">注册用户</string>
+    <!--登录用-->
+    <string name="please_account">请输入账号</string>
+    <string name="please_password">请输入密码</string>
+    <string name="enter">--></string>
+    <!--忘记密码-->
+    <string name="forget"> 忘记密码</string>
 </resources>

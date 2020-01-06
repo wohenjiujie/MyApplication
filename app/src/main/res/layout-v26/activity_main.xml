@@ -18,10 +18,9 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.3"
-            android:autofillHints=""
-            android:inputType="number"
-            tools:ignore="UnusedAttribute"/>
+            app:layout_constraintVertical_bias="0.3" 
+            android:autofillHints="no" 
+            android:inputType="number"/>
     <EditText
             android:gravity="center"
             android:id="@+id/password"
@@ -36,8 +35,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.4"
             android:autofillHints=""
-            android:inputType="number"
-            tools:ignore="TextFields,UnusedAttribute"/>
+            android:inputType="" tools:ignore="TextFields"/>
     <Button
             android:id="@+id/enter_btn"
             android:layout_width="100dp"
