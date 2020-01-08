@@ -5,6 +5,8 @@
     <string name="use_phone">用手机号码注册</string>
     <string name="please_phone">请输入您的手机号码</string>
     <string name="please_ensure">请确认您的密码</string>
+    <string name="click_get">点击获取验证码</string>
+    <string name="input_code">请输入验证码</string>
     <string name="finish">完成注册</string>
     <!--登录用-->
     <string name="please_account">请输入账号</string>
