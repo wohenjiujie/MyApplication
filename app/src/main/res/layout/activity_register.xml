@@ -33,6 +33,7 @@
             tools:ignore="MissingConstraints">
 
     </EditText>
+<!--
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,6 +48,36 @@
             tools:ignore="MissingConstraints">
 
     </EditText>
+-->
+    <com.organization.myapplication.utils.PasswordToggleEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:hint="@string/please_password"
+            android:background="@drawable/account_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.3"
+            android:layout_height="wrap_content" tools:ignore="MissingConstraints">
+
+    </com.organization.myapplication.utils.PasswordToggleEditText>
+    <com.organization.myapplication.utils.PasswordToggleEditText
+            android:id="@+id/ensure"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/please_ensure"
+            android:background="@drawable/account_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.4">
+
+    </com.organization.myapplication.utils.PasswordToggleEditText>
+<!--
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,6 +92,7 @@
             tools:ignore="MissingConstraints">
 
     </EditText>
+-->
     <Button
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
