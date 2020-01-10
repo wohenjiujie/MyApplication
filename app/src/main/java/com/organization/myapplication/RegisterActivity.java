@@ -10,4 +10,6 @@ public class RegisterActivity extends BaseActivity {
     protected int getContentViewId() {
         return R.layout.activity_register;
     }
+
+
 }
