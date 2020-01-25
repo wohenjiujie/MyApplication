@@ -74,27 +74,36 @@ public class PasswordToggleEditText extends EditText implements
                         - getPaddingRight() - mToggleDrawable.getIntrinsicWidth())
                         && (event.getX() < ((getWidth() - getPaddingRight())));
                 if (touchable) {
-                    //显示密码明文
-                    setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    postInvalidate();
-                    CharSequence charSequence = getText();
-                    //为了保证体验效果，需要保持输入焦点在文本最后一位
-                    if (charSequence != null) {
-                        Spannable spanText = (Spannable) charSequence;
-                        Selection.setSelection(spanText, charSequence.length());
-                    }
+                    ishide(false);
                 }
             }else if(event.getAction() == MotionEvent.ACTION_UP){
-                //隐藏密码明文
-                setTransformationMethod(PasswordTransformationMethod.getInstance());
-                postInvalidate();
-                setSelection(getText().length());
+                ishide(true);
             }
         }
 
         return super.onTouchEvent(event);
     }
-
+    /**
+     * 显示与隐藏密码
+     * */
+    public void ishide(boolean hide){
+        if(hide){
+            //隐藏密码明文
+            setTransformationMethod(PasswordTransformationMethod.getInstance());
+            postInvalidate();
+            setSelection(getText().length());
+        }else{
+            //显示密码明文
+            setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            postInvalidate();
+            CharSequence charSequence = getText();
+            //为了保证体验效果，需要保持输入焦点在文本最后一位
+            if (charSequence != null) {
+                Spannable spanText = (Spannable) charSequence;
+                Selection.setSelection(spanText, charSequence.length());
+            }
+        }
+    }
     /**
      * 当EditText焦点发生变化的时候，判断里面字符串长度设置清除图标的显示与隐藏
      */
@@ -102,6 +111,7 @@ public class PasswordToggleEditText extends EditText implements
     public void onFocusChange(View v, boolean hasFocus) {
         if (hasFocus) {
             setToggleIconVisible(getText().length() > 0);
+            ishide(true);
         } else {
             setToggleIconVisible(false);
             setShakeAnimation();

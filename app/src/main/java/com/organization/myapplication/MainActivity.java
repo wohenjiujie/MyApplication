@@ -9,17 +9,24 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 /*登录界面的activity*/
 public class MainActivity extends BaseActivity {
-    TextView tv;
+    private TextView tv_register,tv_forget;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentViewId());
-        tv=findViewById(R.id.register_text);
-        tv.setOnClickListener(new View.OnClickListener() {
+        tv_register=findViewById(R.id.register_text);
+        tv_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this,RegisterActivity.class);
                 startActivity(intent);
+            }
+        });
+        tv_forget=findViewById(R.id.forget_text);
+        tv_forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ForgetActivity.class));
             }
         });
     }
@@ -28,8 +35,4 @@ public class MainActivity extends BaseActivity {
     protected int getContentViewId() {
         return R.layout.activity_main;
     }
-
-
-
-
 }
