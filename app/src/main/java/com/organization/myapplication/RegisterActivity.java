@@ -1,5 +1,6 @@
 package com.organization.myapplication;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -7,7 +8,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 
+import com.organization.myapplication.registration.RegistrationAccounts;
 import com.organization.myapplication.utils.PasswordToggleEditText;
 
 /*
@@ -15,10 +18,20 @@ import com.organization.myapplication.utils.PasswordToggleEditText;
  * 检测手机号和密码长度要用到checkpassword工具类
  * */
 public class RegisterActivity extends BaseActivity {
-    private PasswordToggleEditText chatAccount, chatPassword, chatPasswordEnsure;
+    private PasswordToggleEditText chatPassword, chatPasswordEnsure;
+    private EditText chatAccount;
     private Button chatRegistration;
     private boolean consistency;
+    private RegistrationAccounts registrationAccounts;
+    private boolean accountEnsure;
+    private boolean passwordEnsure;
 
+
+    /**
+     * 检测密码一致性还存在未考虑周全的问题
+     *
+     * @param bundle
+     */
     @Override
     protected void runOnProcess(Bundle bundle) {
         chatRegistration.setOnClickListener(new View.OnClickListener() {
@@ -36,11 +49,70 @@ public class RegisterActivity extends BaseActivity {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (KeyEvent.KEYCODE_ENTER == keyCode) {
-                    chatAccount.getText().toString();
+                    if (null != chatAccount.getText().toString()) {
+                        registrationAccounts.setAccount(chatAccount.getText().toString());
+                        accountEnsure = true;
+                        updateStatus();
+                        return true;
+                    } else {
+                        accountEnsure = false;
+                        updateStatus();
+                    }
                 }
                 return false;
             }
         });
+
+        chatPassword.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (KeyEvent.KEYCODE_ENTER == keyCode) {
+                    registrationAccounts.setPassword(chatPassword.getText().toString());
+                }
+                return false;
+            }
+        });
+
+        chatPasswordEnsure.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (KeyEvent.KEYCODE_ENTER == keyCode) {
+                    if (chatPasswordEnsure.getText().toString().equals(registrationAccounts.getPassword())) {
+                        passwordEnsure = true;
+                        updateStatus();
+                    } else {
+                        passwordEnsure = false;
+                        updateStatus();
+                    }
+                }
+                return false;
+            }
+        });
+
+        chatRegistration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("RegisterActivity", registrationAccounts.toString());
+                if (consistency) {
+                    //上传数据
+
+                } else {
+                    //输入错误
+                }
+            }
+        });
+    }
+
+    @SuppressLint("ResourceAsColor")
+    private void updateStatus() {
+        if (accountEnsure && passwordEnsure) {
+            consistency = true;
+        }
+        if (consistency) {
+            chatRegistration.setBackgroundColor(R.color.colorPrimary);
+        } else {
+            chatRegistration.setBackgroundColor(R.color.colorGrey);
+        }
     }
 
     @Override
@@ -50,6 +122,9 @@ public class RegisterActivity extends BaseActivity {
         chatPassword = this.findViewById(R.id.chat_registration_password);
         chatPasswordEnsure = this.findViewById(R.id.chat_registration_password_ensure);
         consistency = false;
+        accountEnsure = false;
+        passwordEnsure = false;
+        registrationAccounts = new RegistrationAccounts();
     }
 
     @Override
