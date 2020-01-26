@@ -19,6 +19,8 @@ public abstract class BaseActivity extends Activity {
         super.onCreate(savedInstanceState);
         context = getApplicationContext();
         setContentView(getContentViewId());
+        initView(savedInstanceState);
+        runOnProcess(savedInstanceState);
     }
 
     /**
@@ -27,9 +29,12 @@ public abstract class BaseActivity extends Activity {
      * @return
      */
     protected static Context getContext() {
-
         return context;
     }
+
+    protected abstract void runOnProcess(Bundle bundle);
+
+    protected abstract void initView(Bundle bundle);
 
     /**
      * 抽象方法返回Layout布局
@@ -39,21 +44,21 @@ public abstract class BaseActivity extends Activity {
     protected abstract int getContentViewId();
 
     /**
-     * 全局的字符串Toast工具
-     *
-     * @param text
-     */
-    protected void ToastText(String text) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
-    }
-
-    /**
      * 全局的整型数Toast工具
      *
      * @param msg
      */
     protected void ToastMsg(int msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * 全局的字符串Toast工具
+     *
+     * @param text
+     */
+    protected void ToastText(String text) {
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
 
 

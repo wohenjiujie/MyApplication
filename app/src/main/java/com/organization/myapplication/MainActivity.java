@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import com.organization.myapplication.utils.PasswordToggleEditText;
+
 /*登录界面的activity*/
 public class MainActivity extends BaseActivity {
     private TextView tv_register,tv_forget;
@@ -29,6 +32,17 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this,ForgetActivity.class));
             }
         });
+
+    }
+
+    @Override
+    protected void runOnProcess(Bundle bundle) {
+
+    }
+
+    @Override
+    protected void initView(Bundle bundle) {
+
     }
 
     @Override
