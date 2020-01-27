@@ -5,121 +5,115 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <!--登录界面，账号密码输入框，登录按钮，忘记密码找回，用户注册-->
-    <Button
-        android:id="@+id/enter_btn"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/enter"
-        android:text="@string/enter"
-        android:textColor="@android:color/background_light"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"
-        tools:ignore="MissingConstraints">
-
-    </Button>
-    <!--
-        <EditText
-                android:gravity="center"
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/please_password"
-                android:background="@drawable/account_edit"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.4"
-                android:autofillHints=""
-                android:inputType="number"
-                tools:ignore="TextFields,UnusedAttribute"/>
-    -->
+<!--登录界面，账号密码输入框，登录按钮，忘记密码找回，用户注册-->
     <EditText
-        android:id="@+id/account"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:background="@drawable/account_edit"
-        android:gravity="center"
-        android:hint="@string/please_account"
-        android:inputType="number"
-        android:singleLine="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
-        tools:ignore="UnusedAttribute" />
-
-    <TextView
-        android:id="@+id/forget_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/forget"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9"
-        tools:ignore="MissingConstraints">
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/register_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/registration"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9"
-        tools:ignore="MissingConstraints">
-
-    </TextView>
-
-    <View
-        android:layout_width="2dp"
-        android:layout_height="15dp"
-        android:background="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9"
-        tools:ignore="MissingConstraints">
-
-    </View>
-
+            android:id="@+id/account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/please_account"
+            android:background="@drawable/account_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.3"
+            android:autofillHints=""
+            android:inputType="number"
+            tools:ignore="UnusedAttribute"/>
+<!--
+    <EditText
+            android:gravity="center"
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/please_password"
+            android:background="@drawable/account_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.4"
+            android:autofillHints=""
+            android:inputType="number"
+            tools:ignore="TextFields,UnusedAttribute"/>
+-->
     <com.organization.myapplication.utils.PasswordToggleEditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/account_edit"
-        android:drawableRight="@drawable/icon_toggle"
-        android:gravity="center"
-        android:hint="@string/please_password"
-        android:singleLine="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4">
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/please_password"
+            android:gravity="center"
+            android:drawableRight="@drawable/icon_toggle"
+            android:background="@drawable/account_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.4">
 
     </com.organization.myapplication.utils.PasswordToggleEditText>
+    <Button
+            android:id="@+id/enter_btn"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/background_light"
+            android:text="@string/enter"
+            android:background="@drawable/enter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.6"
+            tools:ignore="MissingConstraints">
+
+    </Button>
+<TextView
+        android:id="@+id/forget_text"
+        android:text="@string/forget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintVertical_bias="0.9"
+        tools:ignore="MissingConstraints">
+
+</TextView>
+    <View
+            android:layout_width="2dp"
+            android:layout_height="15dp"
+            android:background="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintVertical_bias="0.9"
+            tools:ignore="MissingConstraints">
+
+    </View>
+    <TextView
+            android:id="@+id/register_text"
+            android:text="@string/registration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.8"
+            app:layout_constraintVertical_bias="0.9"
+            tools:ignore="MissingConstraints">
+
+    </TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>

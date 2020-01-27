@@ -19,7 +19,7 @@
             tools:ignore="MissingConstraints">
     </TextView>
     <EditText
-        android:id="@+id/chat_registration_account"
+            android:id="@+id/chat_registration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -29,9 +29,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.2"
             android:hint="@string/please_phone"
-        android:singleLine="true"
-android:inputType="number"
-        android:background="@drawable/account_edit"
+            android:background="@drawable/account_edit"
 
             tools:ignore="MissingConstraints">
 
@@ -63,9 +61,7 @@ android:inputType="number"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintVertical_bias="0.3"
-        android:singleLine="true"
-
-        android:layout_height="wrap_content" tools:ignore="MissingConstraints">
+            android:layout_height="wrap_content" tools:ignore="MissingConstraints">
 
     </com.organization.myapplication.utils.PasswordToggleEditText>
     <com.organization.myapplication.utils.PasswordToggleEditText
@@ -79,9 +75,7 @@ android:inputType="number"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-        android:singleLine="true"
-
-        app:layout_constraintVertical_bias="0.4">
+            app:layout_constraintVertical_bias="0.4">
 
     </com.organization.myapplication.utils.PasswordToggleEditText>
 <!--
@@ -100,23 +94,9 @@ android:inputType="number"
 
     </EditText>
 -->
-    <Button
-        android:id="@+id/chat_registration"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.6"
-            android:text="@string/finish"
-            android:textColor="@android:color/background_light"
-            android:background="@color/colorGrey"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints">
 
-    </Button>
     <EditText
+            android:id="@+id/chat_registration_account"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -126,12 +106,11 @@ android:inputType="number"
             android:hint="@string/input_code"
             app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintVertical_bias="0.5"
-        android:singleLine="true"
-        android:inputType="number"
-        tools:ignore="MissingConstraints">
+            tools:ignore="MissingConstraints">
 
     </EditText>
     <Button
+            android:id="@+id/get_check"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -144,6 +123,20 @@ android:inputType="number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints">
-
+    </Button>
+    <Button
+            android:id="@+id/register_finish"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.6"
+            android:text="@string/finish"
+            android:textColor="@android:color/background_light"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
     </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>
