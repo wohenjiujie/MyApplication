@@ -18,5 +18,8 @@
     <string name="by_psw"> 1.密码验证</string>
     <string name="by_phone"> 2.手机号验证</string>
     <string name="by_protect"> 3.密保验证</string>
-
+    <string name="old_psw"> 请输入最近使用的一次密码</string>
+    <string name="new_psw"> 请输入新密码</string>
+    <string name="ensure_new_psw"> 请确认新密码</string>
+    <string name="make_sure"> 确定更改</string>
 </resources>
