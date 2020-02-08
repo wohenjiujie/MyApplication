@@ -44,6 +44,7 @@
         <TextView
                 android:drawableEnd="@drawable/forget_by"
                 android:id="@+id/by_phone"
+                android:textColor="@android:color/holo_red_dark"
                 android:text="@string/by_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -21,15 +21,14 @@ public class MainActivity extends BaseActivity {
         tv_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,RegisterActivity.class);
-                startActivity(intent);
+                IntentActivity(MainActivity.this,RegisterActivity.class);
             }
         });
         tv_forget=findViewById(R.id.forget_text);
         tv_forget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,ForgetActivity.class));
+                IntentActivity(MainActivity.this,ForgetActivity.class);
             }
         });
 

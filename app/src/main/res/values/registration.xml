@@ -11,12 +11,12 @@
     <!--登录用-->
     <string name="please_account">请输入账号</string>
     <string name="please_password">请输入密码</string>
-    <string name="enter">--></string>
+    <string name="enter">登录</string>
     <!--忘记密码-->
     <string name="forget"> 忘记密码</string>
     <string name="please_choose"> 请选择找回密码的方式</string>
     <string name="by_psw"> 1.密码验证</string>
-    <string name="by_phone"> 2.手机号验证</string>
+    <string name="by_phone"> 2.手机号验证(建议使用)</string>
     <string name="by_protect"> 3.密保验证</string>
     <string name="old_psw"> 请输入最近使用的一次密码</string>
     <string name="new_psw"> 请输入新密码</string>

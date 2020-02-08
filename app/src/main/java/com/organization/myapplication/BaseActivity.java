@@ -2,16 +2,18 @@ package com.organization.myapplication;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by INvo
  * on 2020-01-06.
  */
-public abstract class BaseActivity extends Activity {
+public abstract class BaseActivity extends AppCompatActivity {
     private static Context context;
 
     @Override
@@ -60,6 +62,13 @@ public abstract class BaseActivity extends Activity {
     protected void ToastText(String text) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
-
-
+    /**
+     * 全局的Activity跳转工具
+     *
+     * @param context,cls
+     */
+    protected void IntentActivity(Context context,Class cls) {
+        Intent intent = new Intent(context, cls);
+        startActivity(intent);
+    }
 }

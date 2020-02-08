@@ -1,4 +1,4 @@
-package com.organization.myapplication.registration;
+package com.organization.myapplication.Bean;
 
 import androidx.annotation.NonNull;
 
@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
  * Created by INvo
  * on 2020-01-26.
  */
-public class RegistrationAccounts<T> {
+public class RegistrationBean<T> {
 
     private T account;
     private T password;

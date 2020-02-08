@@ -13,10 +13,10 @@ import com.organization.myapplication.R;
 * created by wen
 * 检测密码长度
 * */
-public class CheckPasswordUtil {
+public class CheckUtil {
     private Context context;
     private ToastUtil toastUtil;
-    public CheckPasswordUtil(Context context){
+    public CheckUtil(Context context){
         this.context=context;
         toastUtil=new ToastUtil(context);
     }
@@ -25,7 +25,7 @@ public class CheckPasswordUtil {
     public void check(final String phone, final String password){
         if(phone.length()==11){
             if(password.length()>=6){
-                //注册完成生成的随机账号，可以用dialog方式来完成也可以用fragment替换界面，并将屏幕截图保存到sd卡
+                //注册完成生成账号，可以用dialog方式来完成也可以用fragment替换界面，并将屏幕截图保存到sd卡
 
             }else if(password.length()==0){
                 toastUtil.shorttoast(Constant_one.NULL);

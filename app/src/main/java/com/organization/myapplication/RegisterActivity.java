@@ -4,13 +4,11 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.organization.myapplication.registration.RegistrationAccounts;
+import com.organization.myapplication.Bean.RegistrationBean;
 import com.organization.myapplication.utils.PasswordToggleEditText;
 
 /*
@@ -18,14 +16,21 @@ import com.organization.myapplication.utils.PasswordToggleEditText;
  * 检测手机号和密码长度要用到checkpassword工具类
  * */
 public class RegisterActivity extends BaseActivity {
+    //密码，确认密码
     private PasswordToggleEditText chatPassword, chatPasswordEnsure;
-    private EditText chatAccount;
-    private Button chatRegistration;
+    //账号，验证码
+    private EditText chatAccount,chatCheck;
+    //完成注册，获取验证码
+    private Button register_finish,get_check;
+    //检测账号，密码
     private boolean consistency;
-    private RegistrationAccounts registrationAccounts;
+    private RegistrationBean registrationBean;
+    //账号唯一性检测
     private boolean accountEnsure;
+    //密码一致性检测
     private boolean passwordEnsure;
-
+    //验证码检测
+    private boolean checkEnsure;
 
     /**
      * 检测密码一致性还存在未考虑周全的问题
@@ -34,9 +39,31 @@ public class RegisterActivity extends BaseActivity {
      */
     @Override
     protected void runOnProcess(Bundle bundle) {
-        chatRegistration.setOnClickListener(new View.OnClickListener() {
+
+        get_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //下发短信验证码
+
+            }
+        });
+        register_finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //账号唯一性检测
+                /*
+                * if(true){
+                * accountEnsure=true;
+                * }
+                * else{
+                * accountEnsure=false;
+                * }
+                * */
+                //密码一致性检测,同上
+                passwordEnsure=true;
+                //验证码检测,同上
+                checkEnsure=true;
+                updateStatus();
                 if (consistency) {
                     ToastText("注册成功");
                 } else {
@@ -44,87 +71,32 @@ public class RegisterActivity extends BaseActivity {
                 }
             }
         });
-
-        chatAccount.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (KeyEvent.KEYCODE_ENTER == keyCode) {
-                    if (null != chatAccount.getText().toString()) {
-                        registrationAccounts.setAccount(chatAccount.getText().toString());
-                        accountEnsure = true;
-                        updateStatus();
-                        return true;
-                    } else {
-                        accountEnsure = false;
-                        updateStatus();
-                    }
-                }
-                return false;
-            }
-        });
-
-        chatPassword.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (KeyEvent.KEYCODE_ENTER == keyCode) {
-                    registrationAccounts.setPassword(chatPassword.getText().toString());
-                }
-                return false;
-            }
-        });
-
-        chatPasswordEnsure.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (KeyEvent.KEYCODE_ENTER == keyCode) {
-                    if (chatPasswordEnsure.getText().toString().equals(registrationAccounts.getPassword())) {
-                        passwordEnsure = true;
-                        updateStatus();
-                    } else {
-                        passwordEnsure = false;
-                        updateStatus();
-                    }
-                }
-                return false;
-            }
-        });
-
-        chatRegistration.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("RegisterActivity", registrationAccounts.toString());
-                if (consistency) {
-                    //上传数据
-
-                } else {
-                    //输入错误
-                }
-            }
-        });
     }
-
+    //密码账号检测
     @SuppressLint("ResourceAsColor")
     private void updateStatus() {
-        if (accountEnsure && passwordEnsure) {
+        if (accountEnsure && passwordEnsure && checkEnsure) {
             consistency = true;
         }
         if (consistency) {
-            chatRegistration.setBackgroundColor(R.color.colorPrimary);
+            register_finish.setBackgroundColor(R.color.colorGrey);
         } else {
-            chatRegistration.setBackgroundColor(R.color.colorGrey);
+            register_finish.setBackgroundColor(R.color.colorPrimary);
         }
     }
 
     @Override
     protected void initView(Bundle bundle) {
-        chatRegistration = this.findViewById(R.id.chat_registration);
-        chatAccount = this.findViewById(R.id.chat_registration_account);
+        chatAccount = this.findViewById(R.id.chat_account);
         chatPassword = this.findViewById(R.id.chat_registration_password);
         chatPasswordEnsure = this.findViewById(R.id.chat_registration_password_ensure);
-        consistency = false;
+        chatCheck = this.findViewById(R.id.chat_registration_account);
+        get_check=this.findViewById(R.id.get_check);
+        register_finish=this.findViewById(R.id.register_finish);
         accountEnsure = false;
         passwordEnsure = false;
-        registrationAccounts = new RegistrationAccounts();
+        consistency = false;
+        registrationBean = new RegistrationBean();
     }
 
     @Override
